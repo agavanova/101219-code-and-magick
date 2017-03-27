@@ -1,5 +1,5 @@
-"use strict";
-window.renderStatistics = function(ctx, names, times) {
+'use strict';
+window.renderStatistics = function (ctx, names, times) {
     // статистика игры после прохождения
     // тень
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
@@ -40,9 +40,10 @@ window.renderStatistics = function(ctx, names, times) {
         ctx.fillText(Math.floor(times[i]), offsetX, initialY - (times[i] * step) - 10); // время
         ctx.fillText(names[i], offsetX, initialY + 10); // Имя
         // отрисовка
-        if(names[i] === 'Вы'){
+        if (names[i] === 'Вы') {
             ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-        } else {
+        }
+        else {
             ctx.fillStyle = 'rgba(0, 24, 255, ' + (Math.random() * (0.9 - 0.1) + 0.1) + ')'; // random - прозрачность от 0,1 до 0,9
         }
         ctx.fillRect(offsetX, initialY, barWight, -(times[i] * step));
