@@ -15,7 +15,6 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', 120, 60);
   // расчет максимального времени прохождения
   var max = 0;
-  var maxIndex = 0;
 
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
@@ -29,7 +28,7 @@ window.renderStatistics = function (ctx, names, times) {
   var barWight = 40; // px; ширина полосок
   var indent = 50 + barWight;    // px; расстояние между полосками
   var initialX = 120; // px; начальное значение отступа по х
-  var initialY = 240;  // px; начальное значение отступа по y 
+  var initialY = 240;  // px; начальное значение отступа по y
 
   ctx.textBaseline = 'middle'; // положение надписи по центру
   for (i = 0; i < times.length; i++) {
