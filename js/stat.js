@@ -24,12 +24,12 @@ window.renderStatistics = function(ctx, names, times) {
         }
     }
     //расчет и отрисовка гистограммы//
-    var histogramHeight = 150;              // px;
-    var step = histogramHeight / max; // px;
-    var barWight = 40; // px; 
-    var indent = 50 + barWight;    // px;
-    var initialX = 120; // px;
-    var initialY = 240;  // px;
+    var histogramHeight = 150;              // px; максимальная высота
+    var step = histogramHeight / max; // px; шаг отрисовки полосок
+    var barWight = 40; // px; ширина полосок
+    var indent = 50 + barWight;    // px; расстояние между полосками
+    var initialX = 120; // px; начальное значение отступа по х
+    var initialY = 240;  // px; начальное значение отступа по y
 
     ctx.textBaseline = 'middle'; // положение надписи по центру
     for (var i = 0; i < times.length; i++) {
