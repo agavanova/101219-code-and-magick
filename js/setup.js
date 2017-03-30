@@ -2,16 +2,16 @@
 var userSetup = document.querySelector('.setup');
 userSetup.classList.remove('hidden'); // открываем окно установок перед игрой
 // массивы имен и фамилий магов, цвет мантий и глаз
-var WIZARD_FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон']; //имя
-var WIZARD_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг']; //фамилия
+var WIZARD_FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон']; // имя
+var WIZARD_LAST_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг']; // фамилия
 var WIZARD_COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)']; // цвет мантии
 var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green']; // цвет глаз
 var similarListElement = userSetup.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.getElementById('similar-wizard-template').content;
 
 var toSimilarCharacters = function () {
-  var wizardNames = new Array();
-  var similarCharacters = new Array();
+  var wizardNames = [];
+  var similarCharacters = [];
 
   for (var i = 0; i < WIZARD_FIRST_NAMES.length; i++) {
     var randomFirstName = WIZARD_FIRST_NAMES[Math.floor(Math.random() * (WIZARD_FIRST_NAMES.length))]; // получаем рандом имя
@@ -20,8 +20,7 @@ var toSimilarCharacters = function () {
     var randomEyesColor = WIZARD_EYES_COLOR[Math.floor(Math.random() * (WIZARD_EYES_COLOR.length))]; // получаем рандом цвет глаз
     wizardNames[i] = randomFirstName + ' ' + randomLastName; // соединяем имя с фамилией
     similarCharacters[i] = {name: wizardNames[i], coatColor: randomCoatColor, eyesColor: randomEyesColor}; // записываем все полученные данные
-  }
-  ;
+  };
   return similarCharacters;
 };
 
