@@ -20,7 +20,7 @@ var toSimilarCharacters = function () {
     var randomEyesColor = WIZARD_EYES_COLOR[Math.floor(Math.random() * (WIZARD_EYES_COLOR.length))]; // получаем рандом цвет глаз
     wizardNames[i] = randomFirstName + ' ' + randomLastName; // соединяем имя с фамилией
     similarCharacters[i] = {name: wizardNames[i], coatColor: randomCoatColor, eyesColor: randomEyesColor}; // записываем все полученные данные
-  };
+  }
   return similarCharacters;
 };
 
@@ -41,5 +41,4 @@ for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i])); // прогоняем весь массив и вставляем во фрагмент
 }
 similarListElement.appendChild(fragment); // вставляем фрагмент на страницу
-
-userSetup.querySelector('.setup-similar').classList.remove('hidden'); // показываем вставленный фрагмент на страницу
+userSetup.querySelector('.setup-similar').classList.remove('hidden');
