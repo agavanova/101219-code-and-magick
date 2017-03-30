@@ -19,8 +19,9 @@ var toSimilarCharacters = function () {
     var randomCoatColor = WIZARD_COAT_COLOR[Math.floor(Math.random() * (WIZARD_COAT_COLOR.length))]; // получаем рандом цвет мантии
     var randomEyesColor = WIZARD_EYES_COLOR[Math.floor(Math.random() * (WIZARD_EYES_COLOR.length))]; // получаем рандом цвет глаз
     wizardNames[i] = randomFirstName + ' ' + randomLastName; // соединяем имя с фамилией
-    similarCharacters[i] = {name:wizardNames[i], coatColor:randomCoatColor, eyesColor:randomEyesColor}; // записываем все полученные данные
-  };
+    similarCharacters[i] = {name: wizardNames[i], coatColor: randomCoatColor, eyesColor: randomEyesColor}; // записываем все полученные данные
+  }
+  ;
   return similarCharacters;
 };
 
@@ -28,11 +29,11 @@ var wizards = toSimilarCharacters(); // список объектов. Соде�
 
 var renderWizard = function (wizard) { // в качестве аргумента получаем обьект со именами name coatColor eyesColor
   var wizardElement = similarWizardTemplate.cloneNode(true); // копируем структуру шаблона со всеми потомками .similar-wizard-template
-  
+
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name; // записываем имя персонажа
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor; // записываем цвет мантии персонажа
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor; // записываем цвет глаз персонажа
-  
+
   return wizardElement;
 };
 
