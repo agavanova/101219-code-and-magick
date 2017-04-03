@@ -22,7 +22,7 @@ function toSimilarCharacters() {
   var wizardNames = [];
   var similarCharacters = [];
 
-  for (var i = 0; i < 5; i++) {
+  for (i = 0; i < 5; i++) {
     var randomFirstName = WIZARD_FIRST_NAMES[Math.floor(Math.random() * (WIZARD_FIRST_NAMES.length))]; // получаем рандом имя
     var randomLastName = WIZARD_LAST_NAMES[Math.floor(Math.random() * (WIZARD_LAST_NAMES.length))]; // получаем рандом фамилию
     var randomCoatColor = WIZARD_COAT_COLOR[Math.floor(Math.random() * (WIZARD_COAT_COLOR.length))]; // получаем рандом цвет мантии
@@ -31,7 +31,7 @@ function toSimilarCharacters() {
     similarCharacters[i] = {name: wizardNames[i], coatColor: randomCoatColor, eyesColor: randomEyesColor}; // записываем все полученные данные
   }
   return similarCharacters;
-};
+}
 
 function renderWizard(wizard) { // в качестве аргумента получаем обьект со именами name coatColor eyesColor
   var wizardElement = similarWizardTemplate.cloneNode(true); // копируем структуру шаблона со всеми потомками .similar-wizard-template
@@ -41,4 +41,4 @@ function renderWizard(wizard) { // в качестве аргумента пол
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor; // записываем цвет глаз персонажа
 
   return wizardElement;
-};
+}
