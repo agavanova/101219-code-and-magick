@@ -99,7 +99,7 @@ function closePopup() { // закрытие попап
 function paintElementDOM(element, painArray, cb) { // приниает на вход элемент, который красим, массив цветов из которого красить и функцию покраски
   element.addEventListener('click', function () {
     var counter = element.counter;
-    if (typeof counter === "undefined") {
+    if (typeof counter === 'undefined') {
       counter = 1;
     }
     var color = painArray[counter];
