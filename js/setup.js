@@ -44,7 +44,7 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
-setupUserName.addEventListener('keydown', function (evt) { // если в фокусе поле ввода имя персонажа то не срабатывает esc на закрывтие окна 
+setupUserName.addEventListener('keydown', function (evt) { // если в фокусе поле ввода имя персонажа то не срабатывает esc на закрывтие окна
   if (evt.keyCode === 27) {
     evt.stopPropagation();
   }
@@ -70,12 +70,12 @@ function toSimilarCharacters() {
   return similarCharacters;
 }
 
-function renderWizard(wizard) { // в качестве аргумента получаем обьект со именами name coatColor eyesColor
+function renderWizard(wizard1) { // в качестве аргумента получаем обьект со именами name coatColor eyesColor
   var wizardElement = similarWizardTemplate.cloneNode(true); // копируем структуру шаблона со всеми потомками .similar-wizard-template
 
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name; // записываем имя персонажа
-  wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor; // записываем цвет мантии персонажа
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor; // записываем цвет глаз персонажа
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard1.name; // записываем имя персонажа
+  wizardElement.querySelector('.wizard-coat').style.fill = wizard1.coatColor; // записываем цвет мантии персонажа
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizard1.eyesColor; // записываем цвет глаз персонажа
 
   return wizardElement;
 }
@@ -96,7 +96,7 @@ function closePopup() { // закрытие попап
   document.removeEventListener('keydown', onPopupEscPress);
 }
 
-function paintElementDOM (element, painArray, cb) { // приниает на вход элемент, который красим, массив цветов из которого красить и функцию покраски
+function paintElementDOM(element, painArray, cb) { // приниает на вход элемент, который красим, массив цветов из которого красить и функцию покраски
   element.addEventListener('click', function () {
     var counter = element.counter;
     if (counter === undefined) {
@@ -114,11 +114,11 @@ function paintElementDOM (element, painArray, cb) { // приниает на в�
   });
 }
 
-function colorizeCoat(color){
+function colorizeCoat(color) {
   wizardCoatColor.style.fill = color;
 }
 
-function colorizeEyes(color){
+function colorizeEyes(color) {
   wizardEyesColor.style.fill = color;
 }
 
