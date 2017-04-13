@@ -12,7 +12,7 @@ var similarWizardTemplate = document.getElementById('similar-wizard-template').c
 var wizards = toSimilarCharacters(); // список объектов. Содержит сгенерированные рандомно имена с фамилиями, цвет мантии и цвет глаз.
 var fragment = document.createDocumentFragment(); // создаем фрагмент для вставки
 
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 4; i++) {
   fragment.appendChild(renderWizard(wizards[i])); // прогоняем весь массив и вставляем во фрагмент
 }
 similarListElement.appendChild(fragment); // вставляем фрагмент на страницу
@@ -59,12 +59,12 @@ function toSimilarCharacters() {
   var wizardNames = [];
   var similarCharacters = [];
 
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < 4; i++) {
     var randomFirstName = WIZARD_FIRST_NAMES[Math.floor(Math.random() * (WIZARD_FIRST_NAMES.length))]; // получаем рандом имя
     var randomLastName = WIZARD_LAST_NAMES[Math.floor(Math.random() * (WIZARD_LAST_NAMES.length))]; // получаем рандом фамилию
     var randomCoatColor = WIZARD_COAT_COLOR[Math.floor(Math.random() * (WIZARD_COAT_COLOR.length))]; // получаем рандом цвет мантии
     var randomEyesColor = WIZARD_EYES_COLOR[Math.floor(Math.random() * (WIZARD_EYES_COLOR.length))]; // получаем рандом цвет глаз
-    wizardNames[i] = randomFirstName + ' ' + randomLastName; // соединяем имя с фамилией
+    wizardNames[i] = randomFirstName + '<br>' + randomLastName; // соединяем имя с фамилией
     similarCharacters[i] = {name: wizardNames[i], coatColor: randomCoatColor, eyesColor: randomEyesColor}; // записываем все полученные данные
   }
   return similarCharacters;
@@ -72,8 +72,8 @@ function toSimilarCharacters() {
 
 function renderWizard(wizard1) { // в качестве аргумента получаем обьект со именами name coatColor eyesColor
   var wizardElement = similarWizardTemplate.cloneNode(true); // копируем структуру шаблона со всеми потомками .similar-wizard-template
-
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard1.name; // записываем имя персонажа
+debugger
+  wizardElement.querySelector('.setup-similar-label').innerHTML = wizard1.name; // записываем имя персонажа
   wizardElement.querySelector('.wizard-coat').style.fill = wizard1.coatColor; // записываем цвет мантии персонажа
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard1.eyesColor; // записываем цвет глаз персонажа
 
